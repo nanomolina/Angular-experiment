@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AngularJS Binding</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://bootswatch.com/slate/bootstrap.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+    <script type="text/javascript" src="js/controllers.js"  ></script>
+  </head>
+  <body ng-app="myApp" class="container">
+    <h1 class="text-center">Angular examples</h1>
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">First Example</h3>
+      </div>
+      <div class="panel-body">
+        <div ng-controller="GreetingController">
+          {{ greeting }}
+        </div>
+        <div ng-controller="DoubleController">
+          <form class="form-inline">
+            <p> Duplicate:</p>
+            <input type="number" class="form-control" placeholder="enter number" ng-model="num"> <strong> = {{ double(num) }}</strong>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Second Example</h3>
+      </div>
+      <div class="panel-body" ng-controller="SpicyController">
+        <form class="form-inline">
+          <input type="text" class="form-control" placeholder="enter text" ng-model="custom_sp">
+          <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default" ng-click="spicy('chili');">Chili</button>
+            <button type="button" class="btn btn-default" ng-click="spicy('jalapeno');">Jalapeno</button>
+            <button type="button" class="btn btn-default" ng-click="spicy(custom_sp);">Custom</button>
+          </div>
+        </form>
+        <h4>
+          The food is <strong>{{ spice }}</strong> spicy!
+        </h4>
+      </div>
+    </div>
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Third Example</h3>
+      </div>
+      <div class="panel-body">
+        <div ng-controller="PostCtrl as post">
+          <form class="form-inline" ng-submit="post.addMessage(post.new_msg)">
+            <input type="text" class="form-control" placeholder="enter text" ng-model="post.new_msg">
+            <button class="btn btn-default" type="submit">Add Message</button>
+          </form>
+        </div>
+
+        <div ng-controller="ListCtrl as list">
+          <br>
+          <ul class="list-group col-md-4" ng-repeat="message in list.messages">
+            <li class="list-group-item">
+              <span class="badge">{{ message.id }}</span>
+              {{ message.text }}
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+</html>
