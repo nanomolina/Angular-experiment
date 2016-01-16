@@ -40,10 +40,10 @@ myApp.controller('ListCtrl', function(messages) {
 
 myApp.controller('PostCtrl', function(messages) {
   var self = this;
-  self.new_msg = 'Hello World!'
+  self.new_msg = 'Hello World!';
   self.addMessage = function (msg) {
     messages.add(msg);
-    self.new_msg = '';
+  }
 });
 
 // FACTORY
