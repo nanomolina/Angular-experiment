@@ -2,16 +2,14 @@
 <html>
   <head>
     <title>AngularJS Binding</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://bootswatch.com/slate/bootstrap.min.css">
+    <!-- Bootstrap optional theme -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script type="text/javascript" src="js/controllers.js"  ></script>
+    <script type="text/javascript" src="js/extra_lib/jquery.js"></script>
+    <script type="text/javascript" src="js/extra_lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/extra_lib/angular.min.js"></script>
+    <script type="text/javascript" src="js/controllers/index_ctrl.js"  ></script>
   </head>
   <body ng-app="myApp" class="container">
     <!-- Static navbar -->
@@ -32,15 +30,10 @@
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Experiments <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="index.html">Binding & Controllers</a></li>
+                <li><a href="to_do.html">List to do</a></li>
               </ul>
             </li>
           </ul>
