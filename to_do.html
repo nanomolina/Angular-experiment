@@ -49,10 +49,28 @@
         <div class="panel-heading">
           <h3 class="panel-title"><strong>To do</strong> by Angular.js</h3>
         </div>
-        <div class="panel-body">
-          <form class="form-inline" ng-submit="">
-            <input type="text" class="form-control" placeholder="What needs to be done?" ng-model=" ">
-          </form>
+        <div class="panel-body" >
+          <div ng-controller="ListToDoCtrl as todos">
+            <form class="form-inline" ng-submit="todos.addItem(todos.new_msg)">
+              <input type="text" class="form-control" placeholder="What needs to be done?" ng-model="todos.new_msg">
+              <button class="btn btn-success" type="submit">Add Message</button>
+              <button class="btn btn-info" type="button" ng-click="todos.deleteItems()">Clear items</button>
+            </form>
+
+            <br>
+            <ul class="list-group col-md-4" ng-repeat="todo in todos.messages">
+              <li class="list-group-item">
+                <div class="checkbox">
+                    <label>
+                      <input type="checkbox" ng-model="todo.done">
+                      <div ng-if="todo.done==true"><s>{{ todo.text }}</s></div>
+                      <div ng-if="todo.done==false">{{ todo.text }}</div>
+                    </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+
         </div>
         <div class="panel-footer"></div>
       </div>
