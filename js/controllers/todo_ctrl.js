@@ -3,7 +3,8 @@
 
 var myApp = angular.module('myApp', []);
 
-myApp.controller('ListToDoCtrl', function(messages) {
+//CONTROLLERS
+var list_todo_ctrl = myApp.controller('ListToDoCtrl', function(messages) {
   var self = this;
   self.messages = messages.list;
   self.new_msg = 'Hello World!';
@@ -35,8 +36,25 @@ myApp.controller('ListToDoCtrl', function(messages) {
     self.added = false;
     self.deleted = self.alert_info;
   }
-
 });
+
+
+// FILTERS
+list_todo_ctrl.filter('capitalize', function() {
+  return function(text) {
+    return text.toUpperCase();
+  }
+});
+
+
+// DIRECTIVES
+myApp.directive("footer", function() {
+  return {
+    restrict: "E",
+    template: "<div>Hey! This is a directive example.</div>"
+  }
+});
+
 
 // FACTORY
 myApp.factory('messages', function() {
@@ -46,7 +64,7 @@ myApp.factory('messages', function() {
   messages.add = function(msg) {
     messages.list.push({done: false, text: msg});
   }
-  
+
   messages.clear = function() {
     var list_aux = messages.list;
     messages.list = [];
@@ -58,16 +76,3 @@ myApp.factory('messages', function() {
   }
   return messages;
 });
-
-
-//ANIMATIONS
-myApp.animation('.fold-animation', ['$animateCss', function($animateCss) {
-  return {
-    enter: function(element) {
-      return $animateCss(element, {
-        easing: 'ease-out',
-        duration: 2 // two second
-      });
-    }
-  }
-}]);

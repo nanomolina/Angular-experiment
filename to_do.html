@@ -4,6 +4,8 @@
     <title>AngularJS Binding</title>
     <!-- Optional theme -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/to_do.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <!-- Latest compiled and minified JavaScript -->
     <script type="text/javascript" src="js/extra_lib/jquery.js"></script>
@@ -55,27 +57,31 @@
               <input type="text" class="form-control" placeholder="What needs to be done?" ng-model="todos.new_msg">
               <button class="btn btn-success" type="submit">Add Message</button>
               <button class="btn btn-info" type="button" ng-click="todos.deleteItems()">Clear items</button>
+              <div class="input-group pull-right">
+                <input type="text" class="form-control" placeholder="Search" ng-model="todos.search"/>
+                <div class="input-group-addon"><i class="fa fa-search"></i></div>
+              </div>
             </form>
 
             <br>
-            <div ng-if="todos.alert_info" ng-class="['alert', {'alert-success': todos.added, 'alert-info': todos.deleted}]" role="alert">
+            <div ng-if="todos.alert_info" ng-class="['alert' ,{'alert-success': todos.added, 'alert-info': todos.deleted}]" role="alert">
               <a href="#" class="alert-link">{{ todos.info }}</a>
             </div>
-            <ul class="list-group col-md-4" ng-repeat="todo in todos.messages">
+            <ul class="list-group col-md-4" ng-repeat="todo in todos.messages | filter: todos.search">
               <li class="list-group-item">
                 <div class="checkbox">
                     <label>
                       <input type="checkbox" ng-model="todo.done">
-                      <div ng-if="todo.done==true"><s>{{ todo.text }}</s></div>
-                      <div ng-if="todo.done==false">{{ todo.text }}</div>
+                      <div ng-if="todo.done==true"><s>{{ todo.text | capitalize }}</s></div>
+                      <div ng-if="todo.done==false">{{ todo.text | capitalize }}</div>
                     </label>
                 </div>
               </li>
             </ul>
           </div>
-
         </div>
-        <div class="panel-footer"></div>
+        <div class="panel-footer"><footer></footer></div>
+
       </div>
 
     </div>
